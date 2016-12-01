@@ -1,0 +1,15 @@
+[package]
+authors = ["Aaron Trent <novacrazy@gmail.com>"]
+build = "build.rs"
+description = "Open Asset Import Library"
+links = "assimp"
+name = "assimp-sys"
+readme = "README.md"
+version = "3.3.1"
+
+[build-dependencies]
+cmake = "^0.1"
+
+[lib]
+name = "assimp_sys"
+path = "lib.rs"
