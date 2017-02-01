@@ -58,20 +58,35 @@ SET( TEST_SRCS
   unit/AbstractImportExportBase.cpp
   unit/TestIOSystem.h
   unit/TestModelFactory.h
+  unit/ut3DImportExport.cpp
+  unit/ut3DSImportExport.cpp
+  unit/utACImportExport.cpp
+  unit/utAMFImportExport.cpp
+  unit/utASEImportExport.cpp  
   unit/utAnim.cpp
   unit/AssimpAPITest.cpp
+  unit/utB3DImportExport.cpp
   unit/utBatchLoader.cpp
   unit/utBlenderIntermediate.cpp
   unit/utBlendImportAreaLight.cpp
+  unit/utBlenderImportExport.cpp
   unit/utBlendImportMaterials.cpp
+  unit/utBVHImportExport.cpp
   unit/utColladaExportCamera.cpp
   unit/utColladaExportLight.cpp
+  unit/utColladaImportExport.cpp
+  unit/utCSMImportExport.cpp
   unit/utDefaultIOStream.cpp
+  unit/utDXFImporterExporter.cpp
   unit/utFastAtof.cpp
+  unit/utFBXImporterExporter.cpp
   unit/utFindDegenerates.cpp
   unit/utFindInvalidData.cpp
   unit/utFixInfacingNormals.cpp
   unit/utGenNormals.cpp
+  unit/utglTFImportExport.cpp
+  unit/utHMPImportExport.cpp
+  unit/utIFCImportExport.cpp
   unit/utImporter.cpp
   unit/utImproveCacheLocality.cpp
   unit/utIOSystem.cpp
@@ -79,6 +94,7 @@ SET( TEST_SRCS
   unit/utIssues.cpp
   unit/utJoinVertices.cpp
   unit/utLimitBoneWeights.cpp
+  unit/utLWSImportExport.cpp
   unit/utMaterialSystem.cpp
   unit/utMatrix3x3.cpp
   unit/utMatrix4x4.cpp
@@ -94,6 +110,7 @@ SET( TEST_SRCS
   unit/utScenePreprocessor.cpp
   unit/utSharedPPData.cpp
   unit/utStringUtils.cpp
+  unit/utSMDImportExport.cpp
   unit/utSortByPType.cpp
   unit/utSplitLargeMeshes.cpp
   unit/utTargetAnimation.cpp
