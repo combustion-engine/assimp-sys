@@ -194,6 +194,8 @@ protected:
         return nullptr != scene;
     }
 
+#ifndef ASSIMP_BUILD_NO_EXPORT
+
     virtual bool exporterTest() {
         ::Assimp::Importer importer;
         ::Assimp::Exporter exporter;
@@ -204,6 +206,8 @@ protected:
         return true;
     }
 
+#endif // ASSIMP_BUILD_NO_EXPORT
+
 protected:
     ::Assimp::Importer *m_im;
     aiScene *m_expectedScene;
@@ -213,9 +217,13 @@ TEST_F( utObjImportExport, importObjFromFileTest ) {
     EXPECT_TRUE( importerTest() );
 }
 
+#ifndef ASSIMP_BUILD_NO_EXPORT
+
 TEST_F( utObjImportExport, exportObjFromFileTest ) {
     EXPECT_TRUE( exporterTest() );
 }
+
+#endif // ASSIMP_BUILD_NO_EXPORT
 
 TEST_F( utObjImportExport, obj_import_test ) {
     const aiScene *scene = m_im->ReadFileFromMemory( (void*) ObjModel.c_str(), ObjModel.size(), 0 );
@@ -234,15 +242,13 @@ TEST_F( utObjImportExport, issue1111_no_mat_name_Test ) {
     EXPECT_NE( nullptr, scene );
 }
 
-#ifndef ASSIMP_BUILD_NO_EXPORT
-
 TEST_F( utObjImportExport, issue809_vertex_color_Test ) {
     ::Assimp::Importer importer;
     const aiScene *scene = importer.ReadFile( ASSIMP_TEST_MODELS_DIR "/OBJ/cube_with_vertexcolors.obj", 0 );
     EXPECT_NE( nullptr, scene );
 
+#ifndef ASSIMP_BUILD_NO_EXPORT
     ::Assimp::Exporter exporter;
     EXPECT_EQ( aiReturn_SUCCESS, exporter.Export( scene, "obj", ASSIMP_TEST_MODELS_DIR "/OBJ/test.obj" ) );
-}
-
 #endif // ASSIMP_BUILD_NO_EXPORT
+}
