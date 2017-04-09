@@ -1,7 +1,6 @@
 # Open Asset Import Library (assimp)
 # ----------------------------------------------------------------------
-#
-# Copyright (c) 2006-2016, assimp team
+# Copyright (c) 2006-2017, assimp team
 # All rights reserved.
 #
 # Redistribution and use of this software in source and binary forms,
@@ -33,7 +32,6 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
 #----------------------------------------------------------------------
 SET(CMAKE_LEGACY_CYGWIN_WIN32 0) # Remove when CMake >= 2.8.4 is required
 cmake_minimum_required( VERSION 2.8 )
@@ -185,9 +183,9 @@ if (ASSIMP_COVERALLS)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage")
 endif()
 
-INCLUDE (FindPkgConfig)
 INCLUDE_DIRECTORIES( include )
 
+INCLUDE (FindPkgMacros)
 INCLUDE (PrecompiledHeader)
 
 # If this is an in-source build (CMAKE_SOURCE_DIR == CMAKE_BINARY_DIR),
@@ -255,9 +253,7 @@ ENDIF(NOT ZLIB_FOUND)
 INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIR})
 
 # Search for unzip
-IF (PKG_CONFIG_FOUND)
-  PKG_CHECK_MODULES(UNZIP minizip)
-ENDIF (PKG_CONFIG_FOUND)
+use_pkgconfig(UNZIP minizip)
 
 IF ( ASSIMP_NO_EXPORT )
   ADD_DEFINITIONS( -DASSIMP_BUILD_NO_EXPORT)
